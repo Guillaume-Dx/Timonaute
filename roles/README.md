@@ -17,15 +17,18 @@ Timon lets you define custom roles in `<TIMON_HOME>/roles.json`. A role gives an
 
 | Role id | Label | Agent model | Model | Permission mode | Color |
 |---|---|---|---|---|---|
-| `systemarchitect` | System Architect | `SystemArchitect` | `sonnet` | `bypassPermissions` | `#006aff` |
-| `dataarchitect` | Data Architect | `DataArchitect` | `opus` | `bypassPermissions` | `#16a34a` |
-| `threatmodeler` | Threat Modeler | `ThreatModeler` | `opus` | `bypassPermissions` | `#dc2626` |
-| `securityofficer` | Security Officer | `SecurityOfficer` | `opus` | `bypassPermissions` | `#ea580c` |
-| `complianceofficer` | Compliance Officer | `Compliance` | `sonnet` | `bypassPermissions` | `#49db14` |
+| `systemarchitect` | System Architect | `SystemArchitect` | `sonnet` | `auto` | `#006aff` |
+| `dataarchitect` | Data Architect | `DataArchitect` | `opus` | `auto` | `#16a34a` |
+| `threatmodeler` | Threat Modeler | `ThreatModeler` | `opus` | `auto` | `#dc2626` |
+| `securityofficer` | Security Officer | `SecurityOfficer` | `opus` | `auto` | `#ea580c` |
+| `complianceofficer` | Compliance Officer | `Compliance` | `sonnet` | `auto` | `#49db14` |
 
 The other roles of the agent models (`orchestrator`, `coder`, `reviewer`, `merger`, `librarian`, `research`, `ops`) are built-in Timon roles. They are not defined here.
 
-Adapt the models and permission modes to your own setup. The `bypassPermissions` mode lets an agent act without approval prompts. Use it only on a machine and projects you trust.
+Adapt the models and permission modes to your own setup:
+
+- **Models:** `sonnet` and `opus` are model names of the Claude backend. On another backend, use a model that backend provides.
+- **Permission modes:** the table gives recommended defaults. Security and compliance roles should not bypass permission checks. The `bypassPermissions` mode lets an agent act without approval prompts: use it only on a machine and projects you trust.
 
 ## Directives
 
@@ -78,7 +81,6 @@ You do not implement safeguards or give legal advice. You escalate a Non-complia
 
 ## Install
 
-1. Open `<TIMON_HOME>/roles.json`. It is a JSON array of role objects.
-2. Add one object per role with the fields above. Take the `default_directives` text from this page, written as one JSON string with `\n` between the lines.
-3. Choose an icon and a color. Timon accepts only plain icon shapes in `iconSvg`.
-4. Restart Timon if the role does not appear.
+Add each role from Timon's interface or through its `/api/agent-roles` endpoint, using the fields above. The `default_directives` text comes from this page, as one string with a line break between the lines.
+
+You can also edit `<TIMON_HOME>/roles.json` directly. It is a JSON array of role objects, and Timon re-reads it when it changes: no restart is needed. Timon accepts only plain icon shapes in `iconSvg`.

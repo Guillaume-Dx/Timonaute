@@ -2,6 +2,10 @@
 
 My customizations and resources for Timon, a local-first multi-agent platform. Shared so you can reuse or adapt them.
 
+- **Timon web site:** [timon-ai.com](https://timon-ai.com)
+- **Timon documentation:** [docs.timon-ai.com](https://docs.timon-ai.com)
+- **Timon on GitHub:** [ai-timon/timon](https://github.com/ai-timon/timon)
+
 ## Overview
 
 The repo has three parts that work together:
@@ -49,11 +53,10 @@ Each agent model is a folder of six markdown files that define an agent:
 
 ## Usage
 
-1. Add the custom roles to `<TIMON_HOME>/roles.json` ([steps](roles/README.md#install)).
+1. Add the custom roles to Timon ([steps](roles/README.md#install)).
 2. Copy the agent models to a folder of your choice, outside the Timon home folder (for example `<WORKSPACE>/agent-models`).
 3. Copy a skill folder from `Skills/` to `<TIMON_HOME>/skills/<skill-id>/`.
-4. In `Skills/project-team-create/SKILL.md`, replace `<AGENT_MODELS_DIR>` with the folder from step 2.
-5. Ask an agent to use the skill, for example: "create a team for project X".
+4. Ask an agent to use the skill and give it the models folder, for example: "create a team for project X, agent models in `<WORKSPACE>/agent-models`".
 
 ## Customizing
 
@@ -67,4 +70,4 @@ Suggestions and fixes are welcome. Open an issue or a pull request.
 
 ## License
 
-No license is set yet. Add one before reusing this content in your own projects.
+[MIT](LICENSE).

@@ -1,11 +1,11 @@
 ---
 name: project-team-create
-description: Create the agents of a project team from the agent models in <AGENT_MODELS_DIR> and attach them to the project, under the project orchestrator. Use when asked to create, add or staff agents or a team for a project, or to start a new project. Shows a card to choose the agents.
+description: Create the agents of a project team from the agent models folder and attach them to the project, under the project orchestrator. Use when asked to create, add or staff agents or a team for a project, or to start a new project. Shows a card to choose the agents.
 ---
 
 # Create a project team from the agent models
 
-Each agent of a project team is a copy of one agent model. An agent model is a folder in `<AGENT_MODELS_DIR>` that holds six files: `SOUL.md`, `system-prompt.md`, `charter.md`, `directives.md`, `rules.md`, `style.md`.
+Each agent of a project team is a copy of one agent model. An agent model is a folder inside the agent models folder. The user chooses this folder (see step 1). It holds six files: `SOUL.md`, `system-prompt.md`, `charter.md`, `directives.md`, `rules.md`, `style.md`.
 
 Use the `timon` MCP tools only. Do not use a shell command. Do not write files in the Timon home folder.
 
@@ -42,15 +42,16 @@ Create only the agents of this table.
 
 ## Procedure
 
-1. Find the project. Call `project_list`. Get the slug and the working directory of the project.
-2. If the project is not registered, call `project_create` with `slug`, `name` and `cwd`. Do not set `with_orchestrator`. The `cwd` must be an existing absolute path. If you do not know the path, ask the user for it.
-3. Call `agent_list`. Write down each agent whose name starts with `<slug>.`.
-4. Find the project orchestrator. Use the section "Project orchestrator".
-5. Show the card. Call the `question` tool with the questions of the section "Card". Leave out each agent that exists already. If a question has no agent left, leave out the question.
-6. If the project has no orchestrator and the user chose one agent or more, create `<slug>.Orchestrator` first. Do steps 8 to 11 for it.
-7. Create the other chosen agents. For each agent, do steps 8 to 11.
-8. Read the six files of the model folder. If a file is missing, do not create the agent. Report the missing file.
-9. Call `agent_create` with these values:
+1. Find the agent models folder. Use the folder that the user named in the request. If the user named none, ask for it with the `question` tool (free text). The folder must exist and must hold the model folders of the table. If no user is in the conversation and no folder is named, create no agent and report that the folder is missing.
+2. Find the project. Call `project_list`. Get the slug and the working directory of the project.
+3. If the project is not registered, call `project_create` with `slug`, `name` and `cwd`. Do not set `with_orchestrator`. The `cwd` must be an existing absolute path. If you do not know the path, ask the user for it.
+4. Call `agent_list`. Write down each agent whose name starts with `<slug>.`.
+5. Find the project orchestrator. Use the section "Project orchestrator".
+6. Show the card. Call the `question` tool with the questions of the section "Card". Leave out each agent that exists already. If a question has no agent left, leave out the question.
+7. If the project has no orchestrator and the user chose one agent or more, create `<slug>.Orchestrator` first. Do steps 9 to 12 for it.
+8. Create the other chosen agents. For each agent, do steps 9 to 12.
+9. Read the six files of the model folder, inside the agent models folder. If a file is missing, do not create the agent. Report the missing file.
+10. Call `agent_create` with these values:
    - `name`: the agent name from the table.
    - `system_prompt`: the full text of `system-prompt.md`, not changed.
    - `cwd`: the working directory of the project.
@@ -58,18 +59,18 @@ Create only the agents of this table.
    - `role`: the role id from the table.
    - `reports_to`: the name of the project orchestrator. For the project orchestrator, use your own agent name.
    - Do not set `backend`, `model`, `permission_mode`, `mcp_servers` or `allowed_tools`. The agent inherits them.
-10. Call `agent_doc_put` five times, one time for each of `SOUL.md`, `charter.md`, `directives.md`, `rules.md`, `style.md`. Send the full text of the file, not changed.
-11. Call `agent_doc_list` for the agent. The list must show the six files. If a file is missing, write it again one time.
-12. Check the reporting lines. Use the section "Check".
-13. Report the result. Use the section "Report".
+11. Call `agent_doc_put` five times, one time for each of `SOUL.md`, `charter.md`, `directives.md`, `rules.md`, `style.md`. Send the full text of the file, not changed.
+12. Call `agent_doc_list` for the agent. The list must show the six files. If a file is missing, write it again one time.
+13. Check the reporting lines. Use the section "Check".
+14. Report the result. Use the section "Report".
 
 ## Project orchestrator
 
-Look in the list of step 3 for the agents that have the role `orchestrator`.
+Look in the list of step 4 for the agents that have the role `orchestrator`.
 
 - One agent: it is the project orchestrator. Use its exact name.
 - More than one agent: use `<slug>.Orchestrator`. If this name is not in the list, ask the user which agent is the project orchestrator.
-- No agent: the project has no orchestrator. You create `<slug>.Orchestrator` in step 6.
+- No agent: the project has no orchestrator. You create `<slug>.Orchestrator` in step 7.
 
 If the creation of the project orchestrator fails, stop. Do not create the other agents. Report the reason.
 
@@ -118,7 +119,7 @@ If a `reports_to` is not correct, call `agent_update` with `name` and the correc
 - `agent_create` replaces an agent that has the same name. Do not create an agent that exists already, unless the user asked you to replace it.
 - Do not change the `reports_to` of an agent that you did not create.
 - Do not change the text of a model file. Do not shorten it. Do not add a project name to it.
-- Do not use the docs of another agent as a source. The only source is `<AGENT_MODELS_DIR>`.
+- Do not use the docs of another agent as a source. The only source is the agent models folder.
 - A 403 answer is a refusal. Do not try the call again with other values. Report the agent and the reason.
 - Do not start a mission for the new agents. Do not create Kanban tasks.
 
