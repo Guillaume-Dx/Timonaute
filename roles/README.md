@@ -21,7 +21,7 @@ Timon lets you define custom roles in `<TIMON_HOME>/roles.json`. A role gives an
 | `dataarchitect` | Data Architect | `DataArchitect` | `opus` | `bypassPermissions` | `#16a34a` |
 | `threatmodeler` | Threat Modeler | `ThreatModeler` | `opus` | `bypassPermissions` | `#dc2626` |
 | `securityofficer` | Security Officer | `SecurityOfficer` | `opus` | `bypassPermissions` | `#ea580c` |
-| `complianceofficer` | Compliance Officer | `Compliance` | `sonnet` | `auto` | `#49db14` |
+| `complianceofficer` | Compliance Officer | `Compliance` | `sonnet` | `bypassPermissions` | `#49db14` |
 
 The other roles of the agent models (`orchestrator`, `coder`, `reviewer`, `merger`, `librarian`, `research`, `ops`) are built-in Timon roles. They are not defined here.
 
