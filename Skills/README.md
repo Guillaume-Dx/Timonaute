@@ -15,4 +15,4 @@ Inventory of the Timon skills in this repo. Each skill is a folder with a `SKILL
 - **Result:** each agent is named `<slug>.<Role>`, belongs to the project and reports to the project orchestrator. It gets the six files of its agent model.
 - **Scope:** the skill only creates the agents. It does not set permissions, backend or model, and it does not assign skills or MCP servers. The new agents inherit these settings, and you configure them afterwards.
 - **Requires:** the `timon` MCP tools and the agent models. The Design and Risk agents use the [custom roles](../roles/README.md).
-- **Placeholder:** `<TIMON_HOME>` in `SKILL.md` stands for your Timon home folder.
+- **Placeholder:** `<AGENT_MODELS_DIR>` in `SKILL.md` stands for the folder where you copied the agent models. Set it before use. Keep this folder outside the Timon home folder.

@@ -50,9 +50,9 @@ Each agent model is a folder of six markdown files that define an agent:
 ## Usage
 
 1. Add the custom roles to `<TIMON_HOME>/roles.json` ([steps](roles/README.md#install)).
-2. Copy the agent models to `<TIMON_HOME>/Agents/models`.
+2. Copy the agent models to a folder of your choice, outside the Timon home folder (for example `<WORKSPACE>/agent-models`).
 3. Copy a skill folder from `Skills/` to `<TIMON_HOME>/skills/<skill-id>/`.
-4. Check the paths in each `SKILL.md` and adapt them to your setup.
+4. In `Skills/project-team-create/SKILL.md`, replace `<AGENT_MODELS_DIR>` with the folder from step 2.
 5. Ask an agent to use the skill, for example: "create a team for project X".
 
 ## Customizing

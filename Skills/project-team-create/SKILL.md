@@ -1,11 +1,11 @@
 ---
 name: project-team-create
-description: Create the agents of a project team from the agent models in <TIMON_HOME>\Agents\models and attach them to the project, under the project orchestrator. Use when asked to create, add or staff agents or a team for a project, or to start a new project. Shows a card to choose the agents.
+description: Create the agents of a project team from the agent models in <AGENT_MODELS_DIR> and attach them to the project, under the project orchestrator. Use when asked to create, add or staff agents or a team for a project, or to start a new project. Shows a card to choose the agents.
 ---
 
 # Create a project team from the agent models
 
-Each agent of a project team is a copy of one agent model. An agent model is a folder in `<TIMON_HOME>\Agents\models` that holds six files: `SOUL.md`, `system-prompt.md`, `charter.md`, `directives.md`, `rules.md`, `style.md`.
+Each agent of a project team is a copy of one agent model. An agent model is a folder in `<AGENT_MODELS_DIR>` that holds six files: `SOUL.md`, `system-prompt.md`, `charter.md`, `directives.md`, `rules.md`, `style.md`.
 
 Use the `timon` MCP tools only. Do not use a shell command. Do not write files in the Timon home folder.
 
@@ -118,7 +118,7 @@ If a `reports_to` is not correct, call `agent_update` with `name` and the correc
 - `agent_create` replaces an agent that has the same name. Do not create an agent that exists already, unless the user asked you to replace it.
 - Do not change the `reports_to` of an agent that you did not create.
 - Do not change the text of a model file. Do not shorten it. Do not add a project name to it.
-- Do not use the docs of another agent as a source. The only source is `<TIMON_HOME>\Agents\models`.
+- Do not use the docs of another agent as a source. The only source is `<AGENT_MODELS_DIR>`.
 - A 403 answer is a refusal. Do not try the call again with other values. Report the agent and the reason.
 - Do not start a mission for the new agents. Do not create Kanban tasks.
 
