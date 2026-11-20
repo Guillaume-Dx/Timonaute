@@ -1,20 +1,22 @@
 # Timonaute
 
-My customizations and resources for [Timon](https://github.com/Guillaume-Dx/Timonaute), shared so you can reuse or adapt them.
+My customizations and resources for Timon, a local-first multi-agent platform. Shared so you can reuse or adapt them.
 
-> Timon is a local-first multi-agent platform. This repo holds the agent role models and skills I use with it.
+## Overview
 
-## Contents
+The repo has three parts that work together:
 
-```
-Agents/Models/<Role>/   Role models: one folder per agent role
-Skills/<skill-id>/      Skills: one folder per skill, with a SKILL.md
-roles/                  Custom role definitions and their directives
-```
+| Part | Folder | What it is |
+|---|---|---|
+| Agent models | [`Agents/Models`](Agents/Models) | 12 ready-made agent definitions, one folder per role. |
+| Custom roles | [`roles`](roles/README.md) | Default directives, model and permission mode of the 5 custom roles in `roles.json`. |
+| Skills | [`Skills`](Skills/README.md) | Packaged instructions for agents. One skill today: `project-team-create`. |
 
-### Agent role models
+How they fit: a **role** gives an agent its default directives. An **agent model** is the full definition of an agent for that role. The **skill** `project-team-create` copies the agent models into a project and builds a team that reports to the project orchestrator.
 
-Each role model is a folder of six markdown files that together define an agent:
+## Agent models
+
+Each agent model is a folder of six markdown files that define an agent:
 
 | File | Purpose |
 |---|---|
@@ -25,39 +27,39 @@ Each role model is a folder of six markdown files that together define an agent:
 | `rules.md` | Hard rules: what the agent must never do |
 | `style.md` | Tone and report format |
 
-Available roles:
+| Group | Agent model | Role id | Defined in |
+|---|---|---|---|
+| Core team | Orchestrator | `orchestrator` | Built-in |
+| | Coder | `coder` | Built-in |
+| | Reviewer | `reviewer` | Built-in |
+| | Merger | `merger` | Built-in |
+| Design | SystemArchitect | `systemarchitect` | [`roles`](roles/README.md) |
+| | DataArchitect | `dataarchitect` | [`roles`](roles/README.md) |
+| | Writer | `librarian` | Built-in |
+| Support | Researcher | `research` | Built-in |
+| | Troubleshooter | `ops` | Built-in |
+| Risk | ThreatModeler | `threatmodeler` | [`roles`](roles/README.md) |
+| | SecurityOfficer | `securityofficer` | [`roles`](roles/README.md) |
+| | Compliance | `complianceofficer` | [`roles`](roles/README.md) |
 
-| Group | Roles |
-|---|---|
-| Core team | Orchestrator, Coder, Reviewer, Merger |
-| Design | SystemArchitect, DataArchitect, Writer |
-| Support | Researcher, Troubleshooter |
-| Risk | ThreatModeler, SecurityOfficer, Compliance |
+## Custom roles and skills
 
-### Custom roles
-
-[`roles/`](roles/README.md) documents the five custom roles I define in `roles.json` (System Architect, Data Architect, Threat Modeler, Security Officer, Compliance Officer): their directives, default model and permission mode, and how to install them.
-
-### Skills
-
-See [`Skills/README.md`](Skills/README.md) for the inventory.
-
-| Skill | Description |
-|---|---|
-| [`project-team-create`](Skills/project-team-create/SKILL.md) | Creates the agents of a project team from the role models and attaches them to a project, under the project orchestrator. |
+- **Custom roles:** see [`roles/`](roles/README.md) for the directives, default model and permission mode of the five custom roles, and how to add them to `roles.json`.
+- **Skills:** see [`Skills/`](Skills/README.md) for the inventory.
 
 ## Usage
 
-1. Copy the role models to a folder on your machine, for example `<TIMON_HOME>/Agents/models`.
-2. Copy a skill folder from `Skills/` into your Timon skills folder (`<TIMON_HOME>/skills/<skill-id>/`).
-3. Check the paths inside each `SKILL.md` and adapt them to your setup. `project-team-create` points to the role-models folder.
-4. Ask an agent to use the skill, for example: "create a team for project X".
+1. Add the custom roles to `<TIMON_HOME>/roles.json` ([steps](roles/README.md#install)).
+2. Copy the agent models to `<TIMON_HOME>/Agents/models`.
+3. Copy a skill folder from `Skills/` to `<TIMON_HOME>/skills/<skill-id>/`.
+4. Check the paths in each `SKILL.md` and adapt them to your setup.
+5. Ask an agent to use the skill, for example: "create a team for project X".
 
 ## Customizing
 
-- Treat the role models as a starting point. Edit `rules.md` and `style.md` first: they change behavior the most.
+- Treat the agent models as a starting point. Edit `rules.md` and `style.md` first: they change behavior the most.
 - Keep the six file names. The `project-team-create` skill expects them.
-- Role ids in the skill (`coder`, `reviewer`, `ops`...) must match the roles defined in your Timon setup.
+- Role ids in the skill must match the roles defined in your Timon setup.
 
 ## Contributing
 

@@ -1,6 +1,6 @@
 # Custom roles
 
-Timon lets you define custom roles in `<TIMON_HOME>/roles.json`. A role gives an agent a default set of directives, a model and a permission mode. This folder documents the custom roles I use. Each one matches a role model in [`Agents/Models`](../Agents/Models).
+Timon lets you define custom roles in `<TIMON_HOME>/roles.json`. A role gives an agent a default set of directives, a model and a permission mode. This folder documents the custom roles I use. Each one matches an agent model in [`Agents/Models`](../Agents/Models).
 
 ## Role fields
 
@@ -15,7 +15,7 @@ Timon lets you define custom roles in `<TIMON_HOME>/roles.json`. A role gives an
 
 ## Summary
 
-| Role id | Label | Role model | Model | Permission mode | Color |
+| Role id | Label | Agent model | Model | Permission mode | Color |
 |---|---|---|---|---|---|
 | `systemarchitect` | System Architect | `SystemArchitect` | `sonnet` | `bypassPermissions` | `#006aff` |
 | `dataarchitect` | Data Architect | `DataArchitect` | `opus` | `bypassPermissions` | `#16a34a` |
@@ -23,7 +23,7 @@ Timon lets you define custom roles in `<TIMON_HOME>/roles.json`. A role gives an
 | `securityofficer` | Security Officer | `SecurityOfficer` | `opus` | `bypassPermissions` | `#ea580c` |
 | `complianceofficer` | Compliance Officer | `Compliance` | `claude-sonnet-4-6` | `auto` | `#49db14` |
 
-The other roles of the role models (`orchestrator`, `coder`, `reviewer`, `merger`, `librarian`, `research`, `ops`) are built-in Timon roles. They are not defined here.
+The other roles of the agent models (`orchestrator`, `coder`, `reviewer`, `merger`, `librarian`, `research`, `ops`) are built-in Timon roles. They are not defined here.
 
 Adapt the models and permission modes to your own setup. The `bypassPermissions` mode lets an agent act without approval prompts. Use it only on a machine and projects you trust.
 
@@ -75,13 +75,6 @@ You produce a compliance control: data in scope, applicable policy, evidence, ve
 Before checking: read the data model, its classification and the policies that apply.
 You do not implement safeguards or give legal advice. You escalate a Non-compliant finding at once.
 ```
-
-## Role directives and role models
-
-The two layers do not repeat each other:
-
-- **Role directives** (this folder) are short and apply to every agent of the role, whatever the project.
-- **Role models** (`Agents/Models/<Role>/`) are the full agent definition: identity, charter, workflow, rules and style. The skill [`project-team-create`](../Skills/project-team-create/SKILL.md) copies them into a project.
 
 ## Install
 

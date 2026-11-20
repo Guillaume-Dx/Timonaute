@@ -1,11 +1,11 @@
 ---
 name: project-team-create
-description: Create the agents of a project team from the role models in <TIMON_HOME>\Agents\models and attach them to the project, under the project orchestrator. Use when asked to create, add or staff agents or a team for a project, or to start a new project. Shows a card to choose the agents.
+description: Create the agents of a project team from the agent models in <TIMON_HOME>\Agents\models and attach them to the project, under the project orchestrator. Use when asked to create, add or staff agents or a team for a project, or to start a new project. Shows a card to choose the agents.
 ---
 
-# Create a project team from the role models
+# Create a project team from the agent models
 
-Each agent of a project team is a copy of one role model. A role model is a folder in `<TIMON_HOME>\Agents\models` that holds six files: `SOUL.md`, `system-prompt.md`, `charter.md`, `directives.md`, `rules.md`, `style.md`.
+Each agent of a project team is a copy of one agent model. An agent model is a folder in `<TIMON_HOME>\Agents\models` that holds six files: `SOUL.md`, `system-prompt.md`, `charter.md`, `directives.md`, `rules.md`, `style.md`.
 
 Use the `timon` MCP tools only. Do not use a shell command. Do not write files in the Timon home folder.
 
@@ -21,7 +21,7 @@ Create only agents that the project orchestrator can orchestrate. An agent obeys
 
 Do not create an agent that reports to you, to another project, or to nobody. The only agent that reports to you is the project orchestrator.
 
-## Role models
+## Agent models
 
 | Card label | Model folder | Agent name | Role id |
 |---|---|---|---|
