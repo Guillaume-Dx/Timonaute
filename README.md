@@ -12,8 +12,8 @@ The repo has three parts that work together:
 
 | Part | Folder | What it is |
 |---|---|---|
-| Agent models | [`Agents/Models`](Agents/Models) | 12 ready-made agent definitions, one folder per role. |
-| Custom roles | [`roles`](roles/README.md) | Default directives, model and permission mode of the 5 custom roles in `roles.json`. |
+| Agent models | [`Agents/Models`](Agents/Models) | 14 ready-made agent definitions, one folder per role. |
+| Custom roles | [`roles`](roles/README.md) | Default directives, model and permission mode of the 7 custom roles in `roles.json`. |
 | Skills | [`Skills`](Skills/README.md) | Packaged instructions for agents. One skill today: `project-team-create`. |
 
 How they fit: a **role** gives an agent its default directives. An **agent model** is the full definition of an agent for that role. The **skill** `project-team-create` copies the agent models into a project and builds a team that reports to the project orchestrator.
@@ -44,11 +44,13 @@ Each agent model is a folder of six markdown files that define an agent:
 | | Troubleshooter | `ops` | Built-in |
 | Risk | ThreatModeler | `threatmodeler` | [`roles`](roles/README.md) |
 | | SecurityOfficer | `securityofficer` | [`roles`](roles/README.md) |
-| | Compliance | `complianceofficer` | [`roles`](roles/README.md) |
+| | ComplianceOfficer | `complianceofficer` | [`roles`](roles/README.md) |
+| | DPO | `dpo` | [`roles`](roles/README.md) |
+| | DataOwner | `dataowner` | [`roles`](roles/README.md) |
 
 ## Custom roles and skills
 
-- **Custom roles:** see [`roles/`](roles/README.md) for the directives, default model and permission mode of the five custom roles, and how to add them to `roles.json`.
+- **Custom roles:** see [`roles/`](roles/README.md) for the directives, default model and permission mode of the seven custom roles, and how to add them to `roles.json`.
 - **Skills:** see [`Skills/`](Skills/README.md) for the inventory.
 
 ## Usage
@@ -63,6 +65,20 @@ Each agent model is a folder of six markdown files that define an agent:
 - Treat the agent models as a starting point. Edit `rules.md` and `style.md` first: they change behavior the most.
 - Keep the six file names. The `project-team-create` skill expects them.
 - Role ids in the skill must match the roles defined in your Timon setup.
+
+## Versioning
+
+The repo follows [Semantic Versioning](https://semver.org). [`manifest.json`](manifest.json) lists the repo version and the version of each skill, role and agent model. [`CHANGELOG.md`](CHANGELOG.md) lists the changes. Each release has a git tag `vX.Y.Z`.
+
+| Change | Bump | Example |
+|---|---|---|
+| Incompatible: renamed or removed item, changed role id, changed file layout | Major | Rename an agent model folder |
+| New item, or a new behavior that keeps existing use working | Minor | Add an agent model or a role |
+| Fix or wording change with no change in behavior | Patch | Fix a typo in `rules.md` |
+
+To release: bump the versions in `manifest.json`, add an entry to `CHANGELOG.md`, commit, then tag.
+
+Version numbers are not stored inside the agent model files or in `roles.json`: Timon loads every `.md` file of an agent into its context, and a role accepts only its own fields.
 
 ## Contributing
 

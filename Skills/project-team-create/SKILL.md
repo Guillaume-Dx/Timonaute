@@ -36,7 +36,9 @@ Do not create an agent that reports to you, to another project, or to nobody. Th
 | Troubleshooter | `Troubleshooter` | `<slug>.Troubleshooter` | `ops` |
 | Threat Modeler | `ThreatModeler` | `<slug>.ThreatModeler` | `threatmodeler` |
 | Security Officer | `SecurityOfficer` | `<slug>.SecurityOfficer` | `securityofficer` |
-| Compliance | `Compliance` | `<slug>.Compliance` | `complianceofficer` |
+| Compliance Officer | `ComplianceOfficer` | `<slug>.ComplianceOfficer` | `complianceofficer` |
+| Data Protection Officer | `DPO` | `<slug>.DPO` | `dpo` |
+| Data Owner | `DataOwner` | `<slug>.DataOwner` | `dataowner` |
 
 Create only the agents of this table.
 
@@ -80,10 +82,12 @@ Each question is `multiSelect: true`. Use these headers, questions and options.
 
 1. Header `Core team`. Question: "Which core agents do you want for `<slug>`?" Options: Orchestrator, Coder, Reviewer, Merger. Description of each option: "Recommended".
 2. Header `Design`. Question: "Which design agents do you want for `<slug>`? They are optional." Options: System Architect, Data Architect, Writer, None.
-3. Header `Support`. Question: "Which support agents do you want for `<slug>`? They are optional." Options: Researcher, Troubleshooter, None.
-4. Header `Risk`. Question: "Which risk agents do you want for `<slug>`? They are optional." Options: Threat Modeler, Security Officer, Compliance, None.
+3. Header `Support`. Question: "Which support or security agents do you want for `<slug>`? They are optional." Options: Researcher, Troubleshooter, Threat Modeler, Security Officer.
+4. Header `Privacy`. Question: "Which privacy agents do you want for `<slug>`? They are optional." Options: Compliance Officer, Data Protection Officer, Data Owner, None.
 
-Give each agent option a one-line description of what the agent does. The description of `None` is "Create no agent of this group".
+The groups Support and Risk share the cards 3 and 4 because the `question` tool accepts at most 4 questions with 4 options each: Support is Researcher and Troubleshooter. Risk is Threat Modeler, Security Officer, Compliance Officer, Data Protection Officer and Data Owner. Question 3 has no `None` option: no answer means no agent.
+
+Give each agent option a one-line description of what the agent does. The description of `None`, when the question has it, is "Create no agent of this group".
 
 If the project has no orchestrator, do not show the option Orchestrator. Replace the first question with this one: "Which core agents do you want for `<slug>`? The project has no orchestrator. I create `<slug>.Orchestrator` first, and the agents report to it." Options: Coder, Reviewer, Merger.
 
@@ -91,7 +95,7 @@ Only the core team is recommended. The agents of the groups Design, Support and 
 
 How to read the answers:
 
-- `None`, or no answer to a question: create no agent of that group. Do not ask again.
+- `None`, or no answer to a question: create no agent from that question. Do not ask again.
 - `None` together with an agent: create the agent. Ignore `None`.
 - No agent chosen in all the questions: create no agent, and no orchestrator. Report that.
 

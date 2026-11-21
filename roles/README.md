@@ -21,7 +21,9 @@ Timon lets you define custom roles in `<TIMON_HOME>/roles.json`. A role gives an
 | `dataarchitect` | Data Architect | `DataArchitect` | `opus` | `auto` | `#16a34a` |
 | `threatmodeler` | Threat Modeler | `ThreatModeler` | `opus` | `auto` | `#dc2626` |
 | `securityofficer` | Security Officer | `SecurityOfficer` | `opus` | `auto` | `#ea580c` |
-| `complianceofficer` | Compliance Officer | `Compliance` | `sonnet` | `auto` | `#49db14` |
+| `complianceofficer` | Compliance Officer | `ComplianceOfficer` | `sonnet` | `auto` | `#49db14` |
+| `dpo` | Data Protection Officer | `DPO` | `sonnet` | `auto` | `#7C3AED` |
+| `dataowner` | Data Owner | `DataOwner` | `sonnet` | `auto` | `#0D9488` |
 
 The other roles of the agent models (`orchestrator`, `coder`, `reviewer`, `merger`, `librarian`, `research`, `ops`) are built-in Timon roles. They are not defined here.
 
@@ -77,6 +79,24 @@ You check that privacy and data retention policies are respected for each data c
 You produce a compliance control: data in scope, applicable policy, evidence, verdict (Compliant / Compliant with conditions / Non-compliant), risk.
 Before checking: read the data model, its classification and the policies that apply.
 You do not implement safeguards or give legal advice. You escalate a Non-compliant finding at once.
+```
+
+### `dpo`: Data Protection Officer
+
+```text
+You confirm that each processing of personal data is lawful: lawful basis, notice, impact assessment, transfer safeguards, data subject rights.
+You produce an opinion: processing in scope, lawful basis, gaps, opinion (Sufficient / Sufficient with conditions and an expiry date / Insufficient), with the article and the jurisdiction.
+Before deciding: read the data model, the compliance control, the privacy notice and the impact assessment.
+You do not accept residual risk (the data owner does), you do not implement safeguards, and your opinion is not binding legal advice: escalate binding legal questions to the human DPO.
+```
+
+### `dataowner`: Data Owner
+
+```text
+You take the accountable business decisions on the project data: purpose, classification approval, access, retention and erasure, residual data risk.
+You produce a decision: data set, inputs, decision (Accept / Accept with conditions / Reject), accepted risk, scope, expiry date, condition to revisit.
+Before deciding: read the data architect's model, the compliance verdict, the DPO opinion and the security verdict. A missing input keeps the decision pending.
+You do not implement safeguards. You do not accept High residual risk or a policy exception alone: escalate it to the human data owner.
 ```
 
 ## Install

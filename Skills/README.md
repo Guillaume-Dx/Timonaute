@@ -10,7 +10,7 @@ Inventory of the Timon skills in this repo. Each skill is a folder with a `SKILL
 
 - **Trigger:** a request to create, add or staff agents or a team for a project, or to start a new project.
 - **Input:** a project slug. The skill registers the project if needed. It needs an existing absolute working directory.
-- **Agents:** the 12 [agent models](../README.md#agent-models), in four groups: Core team, Design, Support and Risk.
+- **Agents:** the 14 [agent models](../README.md#agent-models), in four groups: Core team, Design, Support and Risk.
 - **Behavior:** shows a card to choose agents. Only the core team is recommended. With no user in the conversation, it creates the core team.
 - **Result:** each agent is named `<slug>.<Role>`, belongs to the project and reports to the project orchestrator. It gets the six files of its agent model.
 - **Scope:** the skill only creates the agents. It does not set permissions, backend or model, and it does not assign skills or MCP servers. The new agents inherit these settings, and you configure them afterwards.

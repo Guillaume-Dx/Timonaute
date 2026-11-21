@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "skills": {
+    "project-team-create": "1.0.0"
+  },
+  "roles": {
+    "systemarchitect": "1.0.0",
+    "dataarchitect": "1.0.0",
+    "threatmodeler": "1.0.0",
+    "securityofficer": "1.0.0",
+    "complianceofficer": "1.0.0",
+    "dpo": "1.0.0",
+    "dataowner": "1.0.0"
+  },
+  "agentModels": {
+    "Coder": "1.0.0",
+    "ComplianceOfficer": "1.0.0",
+    "DPO": "1.0.0",
+    "DataArchitect": "1.0.0",
+    "DataOwner": "1.0.0",
+    "Merger": "1.0.0",
+    "Orchestrator": "1.0.0",
+    "Researcher": "1.0.0",
+    "Reviewer": "1.0.0",
+    "SecurityOfficer": "1.0.0",
+    "SystemArchitect": "1.0.0",
+    "ThreatModeler": "1.0.0",
+    "Troubleshooter": "1.0.0",
+    "Writer": "1.0.0"
+  }
+}
