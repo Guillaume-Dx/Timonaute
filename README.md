@@ -14,7 +14,7 @@ The repo has three parts that work together:
 |---|---|---|
 | Agent models | [`Agents/Models`](Agents/Models) | 14 ready-made agent definitions, one folder per role. |
 | Custom roles | [`roles`](roles/README.md) | Default directives, model and permission mode of the 7 custom roles in `roles.json`. |
-| Skills | [`Skills`](Skills/README.md) | Packaged instructions for agents. One skill today: `project-team-create`. |
+| Skills | [`Skills`](Skills/README.md) | Packaged instructions for agents. Two skills today: `project-team-create` and `audit-token-context-consumption`. |
 
 How they fit: a **role** gives an agent its default directives. An **agent model** is the full definition of an agent for that role. The **skill** `project-team-create` copies the agent models into a project and builds a team that reports to the project orchestrator.
 
@@ -63,6 +63,8 @@ Every agent model ends its `rules.md` with the same **Anti-loop rules** (strict)
 
 - **Custom roles:** see [`roles/`](roles/README.md) for the directives, default model and permission mode of the seven custom roles, and how to add them to `roles.json`.
 - **Skills:** see [`Skills/`](Skills/README.md) for the inventory.
+  - `project-team-create` builds a project team from the agent models.
+  - `audit-token-context-consumption` audits where tokens and context go and produces an HTML report. Its analyses are leads to investigate, not a verdict: they help you improve your configuration and your use of Timon. See [its README](Skills/audit-token-context-consumption/README.md).
 
 ## Usage
 

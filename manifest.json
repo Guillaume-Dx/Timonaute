@@ -1,7 +1,8 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "skills": {
-    "project-team-create": "1.0.0"
+    "project-team-create": "1.0.0",
+    "audit-token-context-consumption": "4.0.0"
   },
   "roles": {
     "systemarchitect": "1.0.0",

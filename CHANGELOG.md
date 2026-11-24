@@ -2,6 +2,11 @@
 
 All notable changes are listed here. Versions follow [Semantic Versioning](https://semver.org). The versions of each skill, role and agent model are in [`manifest.json`](manifest.json).
 
+## [1.2.0] - 2026-11-24
+
+### Added
+- Skill `audit-token-context-consumption` (4.0.0): audits where the tokens and context of a project go and produces an HTML report. Its analyses are leads to investigate, not a verdict.
+
 ## [1.1.0] - 2026-11-24
 
 ### Added
