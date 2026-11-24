@@ -48,6 +48,17 @@ Each agent model is a folder of six markdown files that define an agent:
 | | DPO | `dpo` | [`roles`](roles/README.md) |
 | | DataOwner | `dataowner` | [`roles`](roles/README.md) |
 
+## Shared rules
+
+Every agent model ends its `rules.md` with the same **Anti-loop rules** (strict), to keep agents from wasting time and budget:
+
+- Stop after 2 failed attempts at the same action and ask the orchestrator.
+- Do not wait actively: no sleep, no status polling.
+- Do not relaunch a stuck task or agent: set it to BLOCKED and get the orchestrator's confirmation.
+- Confirm before costly work: more than 3 Kanban tasks, parallel agents, long missions, resuming after a rate limit.
+- On a rate limit, do not retry: report the resume time and wait.
+- Do not start a mission or task that is already running.
+
 ## Custom roles and skills
 
 - **Custom roles:** see [`roles/`](roles/README.md) for the directives, default model and permission mode of the seven custom roles, and how to add them to `roles.json`.

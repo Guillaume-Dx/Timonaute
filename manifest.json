@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "skills": {
     "project-team-create": "1.0.0"
   },
@@ -13,19 +13,19 @@
     "dataowner": "1.0.0"
   },
   "agentModels": {
-    "Coder": "1.0.0",
-    "ComplianceOfficer": "1.0.0",
-    "DPO": "1.0.0",
-    "DataArchitect": "1.0.0",
-    "DataOwner": "1.0.0",
-    "Merger": "1.0.0",
-    "Orchestrator": "1.0.0",
-    "Researcher": "1.0.0",
-    "Reviewer": "1.0.0",
-    "SecurityOfficer": "1.0.0",
-    "SystemArchitect": "1.0.0",
-    "ThreatModeler": "1.0.0",
-    "Troubleshooter": "1.0.0",
-    "Writer": "1.0.0"
+    "Coder": "1.1.0",
+    "ComplianceOfficer": "1.1.0",
+    "DPO": "1.1.0",
+    "DataArchitect": "1.1.0",
+    "DataOwner": "1.1.0",
+    "Merger": "1.1.0",
+    "Orchestrator": "1.1.0",
+    "Researcher": "1.1.0",
+    "Reviewer": "1.1.0",
+    "SecurityOfficer": "1.1.0",
+    "SystemArchitect": "1.1.0",
+    "ThreatModeler": "1.1.0",
+    "Troubleshooter": "1.1.0",
+    "Writer": "1.1.0"
   }
 }
