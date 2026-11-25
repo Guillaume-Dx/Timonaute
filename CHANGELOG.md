@@ -2,6 +2,11 @@
 
 All notable changes are listed here. Versions follow [Semantic Versioning](https://semver.org). The versions of each skill, role and agent model are in [`manifest.json`](manifest.json).
 
+## [1.3.0] - 2026-11-25
+
+### Added
+- Skill `agent-config-consistency-audit` (2.2.0): audits the configuration consistency of an agent, a team, an orchestrator's tree or a project and produces an HTML report. Its findings are indicative signals to check, not verdicts.
+
 ## [1.2.0] - 2026-11-24
 
 ### Added
