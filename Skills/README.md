@@ -6,6 +6,7 @@ Inventory of the Timon skills in this repo. Each skill is a folder with a `SKILL
 |---|---|
 | [`project-team-create`](project-team-create/SKILL.md) | Create the agents of a project team from the agent models in [`Agents/Models`](../Agents/Models) and attach them to the project, under the project orchestrator. Shows a card to choose the agents. |
 | [`audit-token-context-consumption`](audit-token-context-consumption/README.md) | Audit why Timon burns too many tokens or fills context too fast. Produces one self-contained HTML report. |
+| [`agent-config-consistency-audit`](agent-config-consistency-audit/README.md) | Audit the configuration consistency of one agent, a team, an orchestrator's tree or a project. Produces one self-contained HTML report. |
 
 ## `project-team-create`
 
@@ -29,3 +30,14 @@ Inventory of the Timon skills in this repo. Each skill is a folder with a `SKILL
 - **Requires:** the `timon` MCP server, a shell, Node.js 18+ and the `timon` CLI.
 - **Not a verdict:** the analyses are not meant to find the smoking gun. They are leads to investigate, to improve your configuration and your use of Timon.
 - **Details:** see its [README](audit-token-context-consumption/README.md): usage, requirements, recommended models and sample prompts.
+
+## `agent-config-consistency-audit`
+
+- **Purpose:** find configuration problems: models, contradictions, size, missing or unused skills, redundancies and hygiene.
+- **Trigger:** you want to check the configuration of one agent, a team, all agents below an orchestrator or all agents of a project.
+- **Input:** the scope to audit.
+- **Result:** one offline HTML report with severity-ranked findings (`P0` to `P4`) and a prioritized action plan.
+- **Read only:** it never changes identity docs, memory rules, skills, `config.json` or settings.
+- **Requires:** the Timon MCP tools and Node.js.
+- **Not a verdict:** the report is indicative. A finding is a signal to check, not proof of a problem, and it does not necessarily show the smoking gun.
+- **Details:** see its [README](agent-config-consistency-audit/README.md): how it works, scopes, checks, report layout and known blind spots.
